@@ -1,15 +1,15 @@
 # ANIMAL-SPOT: An Animal-Independent Deep Learning Framework for Bioacoustic Signal Detection and Classification
 
-- [General Description](#general description)
+- [General Description](#general-description)
 - [Reference](#reference)
 - [License](#license)
 - [System Requirements](#system-requirements)
-- [OS-Dependent Installation](#os-dependent installation)
-- [Data Preparation](#data preparation)
-- [Network Training](#network training)
-- [Network Prediction](#network prediction)
-- [Network Evaluation](#network evaluation)
-- [Example Data Corpus](#example data corpus)
+- [OS-Dependent Installation](#os-dependent-installation)
+- [Data Preparation](#data-preparation)
+- [Network Training](#network-training)
+- [Network Prediction](#network-prediction)
+- [Network Evaluation](#network-evaluation)
+- [Example Data Corpus](#example-data-corpus)
 
 # General Description
 ANIMAL-SPOT is an animal-independent deep learning software framework addressing various bioacoustic signal identifcation scenarios, such as: (1) binary target/noise detection, (2) multi-class species identification, and (3) multi-class call type recognition. ANIMAL-SPOT is a ResNet18-based Convolutional Neural Network (CNN), taking inspiration from ORCA-SPOT, a ResNet18-based CNN applied to killer whale sound type versus background noise detection (see https://www.nature.com/articles/s41598-019-47335-w). ANIMAL-SPOT was evaluated performing binary target/noise detection on 10 different species and 1 genus scattered around the chordate phylum including: cockatiel (Nymphicus hollandicus), Sulphur-crested cockatoo (Cacatua galerita), Peach-fronted conure
@@ -200,7 +200,7 @@ For this purpose, only the user-, data-, and system-specific network hyper-param
 within the corresponding "config" file, located in the "TRAINING" folder. Afterwards the "start_training.py" script 
 has to be executed on the corresponding operating system.
 
-A successful network training example (log-file output), utilizing the example data corpus, can be seen [here](EXAMPLE_OUTPUTS/TRAIN.log)!
+A successful network training example (log-file output), utilizing the example data corpus, can be seen [here](EXAMPLE_OUTPUTS/NETWORK_TRAINING.log)!
 
 ##Linux
 In a first step the previous installed virtual python environment has to be activated (in case a virtual environment is used). 
