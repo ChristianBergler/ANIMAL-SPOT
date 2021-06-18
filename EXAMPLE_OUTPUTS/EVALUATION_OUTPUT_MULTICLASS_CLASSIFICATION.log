@@ -1,0 +1,3 @@
+Selection	View	Channel	Begin time (s)	End time (s)	Low Freq (Hz)	High Freq (Hz)	Sound type	Comments
+1	Spectrogram_1	1	0.0	0.4	0	20000	other	 
+2	Spectrogram_1	1	0.4	0.6	0	20000	contact	 

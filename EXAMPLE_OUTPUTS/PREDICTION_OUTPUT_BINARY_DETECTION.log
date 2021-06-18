@@ -1,0 +1,35 @@
+02:43:53|I|/home/christian/Desktop/ANIMAL-SPOT_FINAL/TEST/target-PENGUIN_1156_2019_VOC-191205-1083-mono_1790_2932.wav
+02:43:53|I|dataOpts: {'sr': 44100, 'preemphases': 0.98, 'n_fft': 1024, 'hop_length': 172, 'n_freq_bins': 256, 'fmin': 500, 'fmax': 10000, 'freq_compression': 'linear', 'min_level_db': -100, 'ref_level_db': 20}
+02:43:53|I|prediction length: 0.3[s], hop length: 0.1[s], threshold: 0.3, prediction fmin: 500[Hz] prediction fmax: 10000[Hz]
+02:43:53|I|class distribution: {'noise': 0, 'target': 1}
+02:43:53|I|size of the file(samples)=50361
+02:43:53|I|size of hop(samples)=4410
+02:43:53|I|stop time=11
+02:43:54|D|start extract=0
+02:43:54|D|end extract=13229
+02:43:54|I|time=0.0-0.3, pred=1, prob=0.5762767219543457
+02:43:54|D|start extract=4410
+02:43:54|D|end extract=17639
+02:43:54|I|time=0.1-0.4, pred=1, prob=0.8652859330177307
+02:43:54|D|start extract=8820
+02:43:54|D|end extract=22049
+02:43:54|I|time=0.2-0.5, pred=1, prob=0.8678322434425354
+02:43:54|D|start extract=13230
+02:43:54|D|end extract=26459
+02:43:54|I|time=0.3-0.6, pred=1, prob=0.8082016134262085
+02:43:54|D|start extract=17640
+02:43:54|D|end extract=30869
+02:43:54|I|time=0.4-0.7, pred=1, prob=0.8073738241195679
+02:43:54|D|start extract=22050
+02:43:54|D|end extract=35279
+02:43:54|I|time=0.5-0.8, pred=1, prob=0.9698753118515015
+02:43:54|D|start extract=26460
+02:43:54|D|end extract=39689
+02:43:54|I|time=0.6-0.9, pred=1, prob=0.770d786726474762
+02:43:54|D|start extract=30870
+02:43:54|D|end extract=44099
+02:43:54|I|time=0.7-1.0, pred=1, prob=0.67d8625819683075
+02:43:54|D|start extract=35280
+02:43:54|D|end extract=48509
+02:43:54|I|time=0.8-1.1, pred=1, prob=0.5544558787345886
+02:43:54|D|Finished proccessing

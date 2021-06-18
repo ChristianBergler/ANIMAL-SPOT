@@ -1,0 +1,42 @@
+03:24:55|I|/home/christian/Desktop/ANIMAL-SPOT_FINAL/EXAMPLE_PREDICTION_TAPE/EXAMPLE_TAPE.wav
+03:24:55|I|dataOpts: {'sr': 44100, 'preemphases': 0.98, 'n_fft': 1024, 'hop_length': 172, 'n_freq_bins': 256, 'fmin': 500, 'fmax': 10000, 'freq_compression': 'linear', 'min_level_db': -100, 'ref_level_db': 20}
+03:24:55|I|prediction length: 0.3[s], hop length: 0.1[s], threshold: 0.70, prediction fmin: 500[Hz] prediction fmax: 10000[Hz]
+03:24:55|I|class distribution: {'alarm': 0, 'contact': 1, 'noise': 2, 'other': 3}
+03:24:55|I|size of the file(samples)=3570806
+03:24:55|I|size of hop(samples)=4410
+03:24:55|I|stop time=809
+03:24:55|D|start extract=0
+03:24:55|D|end extract=13229
+03:24:55|I|time=0.0-0.3, pred=0, pred_class=other-3, prob=0.8106445074081421
+output_layer:
+alarm=0.01634697988629341;
+contact=0.04731178283691406;
+noise=0.1256967186927795;
+other=0.8106445074081421;
+
+03:24:55|D|start extract=4410
+03:24:55|D|end extract=17639
+03:24:55|I|time=0.1-0.4, pred=0, pred_class=other-3, prob=0.716049724817276
+output_layer:
+alarm=0.016586871817708015;
+contact=0.048493124544620514;
+noise=0.2188703179359436;
+other=0.716049724817276;
+
+03:24:55|D|start extract=8820
+03:24:55|D|end extract=22049
+03:24:55|I|time=0.2-0.5, pred=0, pred_class=noise-2, prob=0.6154248714447021
+output_layer:
+alarm=0.016498878598213196;
+contact=0.0489458367228508;
+noise=0.6154248714447021;
+other=0.31913039088249207;
+
+03:24:55|D|start extract=13230
+03:24:55|D|end extract=26459
+03:24:55|I|time=0.3-0.6, pred=0, pred_class=contact-1, prob=0.94727226123213768
+output_layer:
+alarm=0.015855707228183746;
+contact=0.94727226123213768;
+noise=0.0206035017967224;
+other=0.01626856327056885;
