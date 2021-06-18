@@ -87,7 +87,7 @@ Before starting with the OS-dependent installation procedure download the entire
 the corresponding installation scripts (mentioned below) per operating system can be found. According to your operating system follow
 the respective installation description.
 
-##Linux
+## Linux
 Open a Linux terminal, direct to the path where the OS-dependent installation scripts are stored (see INSTALLATION Folder)
 and execute the installation script *setup_environment.sh* within the terminal:
 
@@ -125,7 +125,7 @@ The python interpreter can be canceled by typing *exit()*.
 
 In order to deactivate your virtual environment in a specific terminal (session) you can either type *deactivate* or just close this particular terminal.
 
-##Windows
+## Windows
 Open a Windows coomand line (cmd) terminal, direct to the path where the OS-dependent installation scripts are stored (see INSTALLATION Folder)
 and execute the installation script *setup_environment.bat* within the terminal:
 
@@ -163,7 +163,7 @@ The python interpreter can be canceled by typing *exit()*.
 In order to deactivate your virtual environment in a specific terminal (session) you can either type *deactivate* or just close this particular terminal.
 
 
-##MacOs
+## MacOs
 Open a MacOs terminal, direct to the path where the OS-dependent installation scripts are stored (see INSTALLATION Folder)
 and execute the installation script *setup_environment.sh* within the terminal:
 
