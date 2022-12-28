@@ -1,0 +1,225 @@
+######################################################################
+#																	 #
+#				ANIMAL-SPOT TRAINING CONFIG FILE         			 #
+#																	 #
+######################################################################
+  
+################
+###SRC_DIR = Directory to the ANIMAL-SPOT Source Code Repository
+################
+src_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###DEBUG = Activate/Deactivate additional logging information during training procedure (recommended). 
+###Activate (=true) versus Deactivate (=false). In case of deactivation the logging level is set to "Info"
+###which does not provide such detailed information than "Debug". 
+################
+debug=true
+
+################
+###DATA_DIR = Directory to the prepared data material 
+################
+data_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###CACHE_DIR = Directory where cached spectrograms will be stored. During network training, each processed
+###spectrogram can be cached while setting this option. This speeds up all upcomming training sessions, because
+###the spectrograms can be directly loaded from this cache direcotry (occupies storage, speed up training). By
+###default this is "None", and therefore caching is disabled.
+################
+cache_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###MODEL_DIR = Directory where the final network/model will be stored. 
+################
+model_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###CHECKPOINT_DIR = Directory where training checkpoints will be stored. Checkpoints are important to load model weights and restart training
+###from an existing checkpoint, rather than starting from scratch. 
+################
+checkpoint_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###LOG_DIR = Directory where the logging file, named TRAIN.log, will be stored.
+################
+log_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###SUMMARY_DIR = Directory where all the summary files will be stored. Summary files include all the information about the entire training procedure
+###(e.g. various machine learning metrics, spectrogram images, and other important figure) which can be loaded to tensorboard (see README - section Network Evaluation). 
+################
+summary_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###NOISE_DIR = Directory where all the .wav excerpts are stored which will be used for noise augmentation during training. If this option is not set,
+###noise augmentation will not be performed during training. According to the data, it has to be decided whether noise augmentation has a benefit,
+###and should be activated or not, e.g. original noise-heavy and faint animal vocalization might be eliminated because of noise augmentation. 
+################
+noise_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###START_FROM_SCRATCH = Start taining from scratch, i.e. do not use any kind of given checkpoint to restore.
+################
+start_from_scratch=true
+
+################
+###MAX_TRAIN_EPOCHS = Maximum number of epochs to train the network. By default 500 epochs are set. However, based on previous experience 100 to 150 maximum
+###training epochs is a good number.
+################
+max_train_epochs=1
+
+################
+###JIT_SAVE = After training is finished the network can be saved via two options, either via torch.jit.save or torch.save.
+###Dependent on the future use-case of the network it might be saved with either of the two options. By default this option is deactivated.
+###Activate (=true) versus Deactivate (=false).
+################
+jit_save=false
+
+################
+###EPOCHS_PER_EVAL = The amount of epochs after which the model is evaluated on the validation set. By default this is 2, meaning that after 2 epochs of training,
+###the model will be evaluated on the validation set, in order to verify and observe the performance.
+################
+epochs_per_eval=2
+
+################
+###BATCH_SIZE = The amount of spectrograms which will be processed within one batch. Batch size values between 4 and 32 are recommended.
+###By default a batch size of 16 is used.
+################
+batch_size=16
+
+################
+###NUM_WORKERS = The amount of workers while loading the spectral information. This option is only supported in Linux and MacOS due to Windows
+###multi-processing restrictions. Multi-processing is disabled while setting num_workers to zero. By default 8 workers are chosen (values between 1 and 8 are recommended).
+###However, this is not affecting training speed when using a GPU. Moreover, when using the caching option, the network will significantly speed
+###up the initial data loading after successfully caching all spectrograms in the first run.
+################
+num_workers=8
+
+################
+###NO_CUDA = When this option is deactivated and a GPU is available the model will train GPU-based (much faster!). In case this option is activated
+###the model will ignore GPU-based training independent of the hardware.
+###Activate (=true) versus Deactivate (=false).
+################
+no_cuda=false
+
+################
+###LR = Learning rate for updating weights in after each backpropagation step. This parameter has a strong influence regarding network performance. By default
+###a learning rate of 10e-5 is selected, which suits for most of the cases. In general, an increase of the batch-size and learning rate should be done consistently and vice versa.
+###Usually the learning rate is within a range of 0.1 (10e-2) and 0.000001 (10e-6), which is recommended to stay in this value range. Combined with the recommended batch size
+###the default value of 10e-5 can be used. However, changes within the learning rate (within the recommended range) can be made, in order to observe the impact with respect 
+###to the final network performance.
+################
+lr=10e-5
+
+################
+###BETA1 = This value will be used by the Adam-optimizer to control the decay of the moving averages. More detailed information about the Adam-optimizer can be found in the literature. ###By deafault a beta1 value of 0.5 is set, together with a fixed beta2 value of 0.999. The default value is suitable for most scenarios. However, valid values for beta1 are numbers ###between 0.5 up to 0.9.
+################
+beta1=0.5
+
+################
+###LR_PATIENCE_EPOCHS = Decay the learning rate after N/epochs_per_eval epochs without any improvements on the validation set. According to the chosen value regarding the
+###epochs_per_eval option, the learning rate will be decayed by a factor (see lr_decay_factor option). By default this value is 8, together with the default value
+###of the 2 concerning epochs_per_eval, resulting in a learning rate decay after 4 epochs without any improvements on the validaton set (accuracy as metric reference).
+################
+lr_patience_epochs=8
+
+
+################
+###LR_DECAY_FACTOR = The learning rate decay factor, reducing the learning rate after a given number of epochs (see lr_patience_epochs)
+################
+lr_decay_factor=0.5
+
+################
+###EARLY_STOPPING_PATIENCE_EPOCHS = An early stopping criteria in order to avoid network overfitting acting as a regulariztaion technique. The entire network training 
+###will be stopped in case there are no improvements on the validatoin set for more than the amount of early_stopping_patience_epochs (default: 20) divided by epochs_per_eval (default: 2)
+################
+early_stopping_patience_epochs=20
+
+################
+###FILTER_BROKEN_AUDIO = Filter all audio files which are below a minimum loudness of 1e-3 (float32) before the final data split and network training. These files will be stored within
+###a generated back-up (bck) folder and not considered for model training
+###Activate (=true) versus Deactivate (=false).
+################
+filter_broken_audio=true
+
+################
+###SEQUENCE_LENGTH = During training a fixed sequence length (amount of time) is used. This is specified via the sequence_length option. All files will be either zero-padded, in case
+###the original file is too short, or randomly sub-sampled in case the original audio is too long. Consequently each training clip represents a temporal context, equalt to this value.
+###This value is given in milliseconds. According to the species-specific target signals, this parameter has to be set in a way to represent the average duration length of the
+###corresponding animal vocalizations. Consequently this parameter is highly animal-specific and needs to be adjusted for each species. By default the value is set to 500ms.
+################
+sequence_len=500
+
+################
+###FREQ_COMPRESSION = In order to reduce memory usage, all input spectrograms are frequency compressed. Therefor a frequency range (fmin-fmax) is mapped onto a give number of
+###frequency bins (see option n_freq_bins). The method of compression can be either set to "linear" (default), "mel", or "mfcc". Experience over many different species 
+###has shown that the linear compression works best.
+################
+freq_compression=linear
+
+################
+###N_FREQ_BINS = The number of frequency bins representing a given frequency range (fmin-fmax). The larger the number of selected frequency bins, the greater the memory usaged
+###due to larger network input spectrograms. If the selected FFT window size, which defines the maximum number of frequency bins, is smaller than the selected n_freq_bins number, the 
+###final network input spectrogram will be interpolated and in the other case compressed.
+################
+n_freq_bins=256
+
+################
+###N_FFT = This option represents the FFT window size in samples. The larger the FFT windows size the better frequency resolutions can be obtained. However, time resolutions get worse
+###while increasing this parameter. Smaller FFT window sizes lead to a better time but worse frequency resolution. Consequently there exist a trade-off between the two versions, 
+###dependent on the respective use-case. While considering the animal-specific signal characteristics a proper FFT window size has to be determined. By default it is set to 1024 samples.
+###According to the information in the manuscript, different FFT sizes are visualized for different species, giving an intuation of a proper value (usually values using a power of 2, e.g
+###128, 256, 512, 1024, 2048, 4096).
+################
+n_fft=1024
+
+################
+###HOP_LENGTH = This option represent the FFT hop length, which is mainly responsible for the amount of resulting time bins. The amount of time bins can be obtained by:
+###sequence_length/1000 * sampling_rate/hop_length (e.g. 500ms/1000ms * 44100Hz/172samples) ~ 128 time bins. Together with the obtained n_freq_bins, this is the final 
+###size of the input data, e.g. 128x256. All experiments have been made with this shape, showing promising results. However, different input shaps are possible.
+###Using the previous formula allows to design a hop_length which results in a certain amount of time frames (note: the ResNet arichtecture compress data by a factor of 2,
+###so input shape dimensions of a power of 2 does not result in rounding problems while compression, e.g. 128x256 -> 64x128 -> 32x64 -> 16x32 -> 8x16)
+################
+hop_length=172
+
+################
+###AUGMENTATION = if this parameter is activated random intensity, time, and pitch augmentation within a certain range is conducted during training only. If noise augmentation
+###should be conducted this parameter has to be activated. In case it is deactivated, the enire augmentation pipeline is not utilized.
+###Activate (=true) versus Deactivate (=false).
+################
+augmentation=true
+
+################
+###RESNET = defines the network architecture, including different ResNet options, e.g. 18, 34, 50, 101, and 152. Depending on the selected value the corresponding ResNet model
+###is build. For ANIMAL-SPOT only ResNet18 was used, which provides the best inference and training times, as well as promising results, even with respect to deeper/larger network models.
+################
+resnet=18
+
+################
+###CONV_KERNEL_SIZE = defines the kernel size for the initial square ResNet convolution. Different kernel sizes can be selected (default: 7, according to the original ResNet 
+###implementation). However, other valid kernel sizes are: 3, 5, 9 
+################
+conv_kernel_size=7
+
+################
+###NUM_CLASSES = defines the number of classes. In case of a binary detection scenario this value is equal to 2. In case of a multi-class species/call type classification scenario
+###this value has to be set according to the existing number of classes
+################
+num_classes=2
+
+################
+###MAX_POOL = defines wheter the initial max-pooling within the ResNet architecture is conducted or not. There are three different option: setting the value to 1 activates max
+###pooling according to the original ResNet implementation. Setting the value to 0, deactivates max-pooling but setting a stride of 2 within the first convolution of the first 
+###ResNet block in order to end up with the same output shape as max-pooling would be activated. Setting the value to 2 deactivates max-pooling and does not apply a stride of 2, as 
+###option 2. Consequently the output shape does not change, compared to option 0 and 1. In order not to lose too much resolution at an early stage, max-pooling was disabled in all 
+###experiments (no stride either, option 2). According to previous experience, this led to the best results.
+################
+max_pool=2
+
+################
+###MIN_MAX = defines the type of normalization within the data preprocessing procedure. There exist two different types of normalization - 0/1-dB-normalization and min-max-normalization
+###If this option is activated min-max-normalization is conducted. Otherwise 0/1-dB-normalization is applied, using the given reference and minimum dB values.
+###Activate (=true) versus Deactivate (=false).
+################
+min_max_norm=true

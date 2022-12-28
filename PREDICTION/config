@@ -1,0 +1,96 @@
+######################################################################
+#																	 #
+#				ANIMAL-SPOT PREDICTION CONFIG FILE         			 #
+#																	 #
+######################################################################
+
+################
+###SRC_DIR = Directory to the ANIMAL-SPOT Source Code Repository
+################  
+src_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###DEBUG = Activate/Deactivate additional logging information during training procedure (recommended). 
+###In case of deactivation the logging level is set to "Info" which does not provide such detailed information than "Debug". 
+###Activate (=true) versus Deactivate (=false).
+################
+debug=true
+
+################
+###MODEL_PATH = Path of the trained and saved network model (.pk file)
+################  
+model_path=/*USER-SPECIFIC-DIRECTORY*/ANIMAL-SPOT.pk
+
+################
+###LOG_DIR = Directory where the logging file, named PREDICT.log, will be stored.
+################
+log_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###OUTPUT_DIR = Directory where the output prediction file(s) and visualizations (if activated, see visualize option) are stored.
+################
+output_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###SEQUENCE_LENGTH = Prediction sequence length in milliseconds. The network will get an input of a given sequence length
+###in order to predict/classify this particular frame (sliding window approach). Consequently each classification hypotheses involves
+###the same temporal context, which should be similar to the selected sequence length during training.
+################
+sequence_len=0.30
+
+################
+###HOP = Hop size in milliseconds. The network will get an input of a given sequence length
+###in order to predict/classify this particular frame and afterwards the window is moved by the given hop size (sliding window approach).
+################
+hop=0.10
+
+################
+###THRESHOLD = network confidence threshold, which has to be higher than this particular defined threshold in order to consider
+###a network hypothesis as true/valid. Everything below will be conisdered as noise. A threshold can be desinged in a way that
+###as many vocalization events as possible should be detected, or as less false alarms as possible should be made (trade-off).
+################
+threshold=0.75
+
+################
+###BATCH_SIZE = The amount of spectrograms which will be processed within one batch. Batch size values during prediction are always set to 1.
+################
+batch_size=1
+
+################
+###NUM_WORKERS = The amount of workers while predicting spectral information. This option is only supported in Linux and MacOS due to Windows
+###multi-processing restrictions. During prediction this value has to be set to 1. In Windows this value has to be set to 0.
+################
+num_workers=1
+
+################
+###NO_CUDA = When this option is deactivated and a GPU is available the model will predict GPU-based (much faster!). In case this option is activated
+###the model will ignore GPU-based predictioin independent of the hardware.
+###Activate (=true) versus Deactivate (=false).
+################
+no_cuda=true
+
+################
+###VISUALIZE = Enable visualization option, which will visualize and store spectrograms for each given frame within the given output directory.
+###Activate (=true) versus Deactivate (=false).
+################
+visualize=false
+
+################
+###JIT_LOAD = Dependent on the selected jit_save option during training, this value has to be set equivalent in order to properly load the model.
+###Activate (=true) versus Deactivate (=false).
+################
+jit_load=false
+
+################
+###MIN_MAX = defines the type of normalization within the data preprocessing procedure. There exist two different types of normalization - 0/1-dB-normalization and min-max-normalization
+###If this option is activated min-max-normalization is conducted. Otherwise 0/1-dB-normalization is applied, using the given reference and minimum dB values. This value has to equivalent
+###to the value during training in order to not mix up two different types of nomralization techniques during training and prediction
+###Activate (=true) versus Deactivate (=false).
+################
+min_max_norm=false
+
+
+################
+###INPUT_FILE = input data which should be predicted via the network. It can be either a path to a given audio file (.wav), or a path to a directory only containing .wav files 
+################
+input_file=/*USER-SPECIFIC-DIRECTORY*/audio.wav

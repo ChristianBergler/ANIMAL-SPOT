@@ -1,0 +1,30 @@
+######################################################################
+#																	 #
+#				ANIMAL-SPOT EVALUATION CONFIG FILE         			 #
+#																	 #
+######################################################################
+
+################
+###PREDICTION_DIR = Directory where the input prediction file(s) are stored (only prediction files, no other files allowed).
+################
+prediction_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###OUTPUT_DIR = Directory where the annotation files (per prediction file) are stored.
+################
+output_dir=/*USER-SPECIFIC-DIRECTORY*/
+
+################
+###THRESHOLD = network confidence threshold, which has to be higher than this particular defined threshold in order to consider
+###a network hypothesis as true/valid. Everything below will be conisdered as noise. Typically this threshold should be the same
+###as the threshold during network prediction, however, a different can also be chosen, while building the annotation file.
+###If this is the case the prediction and annotation file might be different due to the different threshold
+################
+threshold=0.85
+
+################
+###NOISE_IN_ANNO = If this flag is set, also the noise segments will be stored within the annotation file. Otherwise only
+###animal vocalizations will be named within the annoation file (all classes independent of noise).
+###Activate (=true) versus Deactivate (=false).
+################
+noise_in_anno=false
