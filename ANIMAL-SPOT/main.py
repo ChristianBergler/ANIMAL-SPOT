@@ -193,6 +193,20 @@ parser.add_argument(
 )
 
 parser.add_argument(
+    "--fmin",
+    type=int,
+    default=500,
+    help="Minimum frequency covered within the spectrogram (lower frequencies are ignored).",
+)
+
+parser.add_argument(
+    "--fmax",
+    type=int,
+    default=10000,
+    help="Maximum frequency covered within the spectrogram (higher frequencies are ignored).",
+)
+
+parser.add_argument(
     "--n_freq_bins",
     type=int,
     default=256,
@@ -403,10 +417,10 @@ if __name__ == "__main__":
 
     classes = get_classes(database=audio_files)
 
-    #if classifierOpts["num_classes"] == len(classes):
-    #    log.info("Model predict " + str(len(classes)) + " classes")
-    #else:
-    #    raise Exception("amount of automatically identified classes do not match amount of chosen classes!")
+    if classifierOpts["num_classes"] == len(classes):
+        log.info("Model predict " + str(len(classes)) + " classes")
+    else:
+        raise Exception("amount of automatically identified classes do not match amount of chosen classes!")
 
     datasets = {
         split: Dataset(

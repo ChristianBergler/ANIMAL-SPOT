@@ -223,3 +223,13 @@ max_pool=2
 ###Activate (=true) versus Deactivate (=false).
 ################
 min_max_norm=true
+
+################
+###FMIN = defines the minimum frequency covered within the spectral network input representation. Every frequency below is ignored within the spectrogram.
+################
+fmin=500
+
+################
+###FMAX = defines the maximum frequency covered within the spectral network input representation. Every frequency above is ignored within the spectrogram.
+################
+fmax=10000
