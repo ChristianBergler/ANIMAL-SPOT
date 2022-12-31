@@ -376,7 +376,7 @@ if __name__ == "__main__":
     sequence_len = int(
         float(ARGS.sequence_len) / 1000 * dataOpts["sr"] / dataOpts["hop_length"]
     )
-    log.debug("Training with sequence length: {}".format(sequence_len))
+    log.debug("Number of spectrogram time-steps (input size = time-steps x frequency-bins) : {}".format(sequence_len))
     input_shape = (ARGS.batch_size, 1, dataOpts["n_freq_bins"], sequence_len)
 
     log.info("Setting up model")

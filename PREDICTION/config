@@ -89,6 +89,12 @@ jit_load=false
 ################
 min_max_norm=false
 
+################
+###LATENT_EXTRACT = Additional extraction of hidden layer information (one layer before final output layer), by creating a pickle file at the chosen ouptut directory named animal-spot-classifier.p including the following
+###information: filenames, features, spectrogram input
+###Activate (=true) versus Deactivate (=false).
+################
+latent_extract=true
 
 ################
 ###INPUT_FILE = input data which should be predicted via the network. It can be either a path to a given audio file (.wav), or a path to a directory only containing .wav files 
