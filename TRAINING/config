@@ -184,6 +184,11 @@ n_fft=1024
 hop_length=172
 
 ################
+###SAMPLING_RATE = sampling rate in order to resample given input data. In case sampling rate is equal to the original sampling rate, no resampling will be performed. Default: 441000 Hz
+################
+sr=424100
+
+################
 ###AUGMENTATION = if this parameter is activated random intensity, time, and pitch augmentation within a certain range is conducted during training only. If noise augmentation
 ###should be conducted this parameter has to be activated. In case it is deactivated, the enire augmentation pipeline is not utilized.
 ###Activate (=true) versus Deactivate (=false).

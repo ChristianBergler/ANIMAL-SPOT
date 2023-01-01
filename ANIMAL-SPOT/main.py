@@ -193,6 +193,13 @@ parser.add_argument(
 )
 
 parser.add_argument(
+    "--sr",
+    type=int,
+    default=44100,
+    help="Sampling Rate in order to resample input data.",
+)
+
+parser.add_argument(
     "--fmin",
     type=int,
     default=500,
