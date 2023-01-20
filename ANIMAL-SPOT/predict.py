@@ -297,8 +297,10 @@ if __name__ == "__main__":
 
                 out = model(input).cpu()
 
-                feature_array.append(model.classifier.get_layer_output()["hidden_layer_1"].cpu().detach().squeeze().numpy())
-                spectra_input.append(input)
+                if ARGS.latent_extract:
+
+                    feature_array.append(model.classifier.get_layer_output()["hidden_layer_1"].cpu().detach().squeeze().numpy())
+                    spectra_input.append(input)
 
                 for n in range(out.shape[0]):
                     t_start = (i * ARGS.batch_size + n) * hop
