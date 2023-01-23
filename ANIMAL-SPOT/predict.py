@@ -233,6 +233,7 @@ if __name__ == "__main__":
     log.close()
 
     if ARGS.latent_extract:
+
         file_names = []
         feature_array = []
         spectra_input = []
@@ -308,7 +309,9 @@ if __name__ == "__main__":
                     file_log.debug("start extract={}".format(t_start))
                     file_log.debug("end extract={}".format(t_end))
 
-                    file_names.append(file_name.replace(".wav", "")+"_"+str(round(t_start / sr, 3))+"_"+str(round(t_end / sr, 3))+".wav")
+                    if ARGS.latent_extract:
+
+                        file_names.append(file_name.replace(".wav", "")+"_"+str(round(t_start / sr, 3))+"_"+str(round(t_end / sr, 3))+".wav")
 
                     if num_classes == 2:
                         prob = torch.nn.functional.softmax(out, dim=1).numpy()[n, 1]
