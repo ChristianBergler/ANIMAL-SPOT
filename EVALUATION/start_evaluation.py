@@ -19,13 +19,13 @@ import platform
 from collections import OrderedDict
 
 
-def get_dict_key_ignorecase(dict_in, key):
+def get_dict_key_ignorecase(dict_in, key_t):
     dict_lc = dict()
     for key in dict_in:
         dict_lc[key.lower()] = dict_in.get(key)
-    key = key.lower()
-    if dict_lc.get(key) is not None:
-        return dict_lc.get(key)
+    key_t = key_t.lower()
+    if dict_lc.get(key_t) is not None:
+        return dict_lc.get(key_t)
     else:
         return None
 
@@ -86,6 +86,7 @@ class setup_evaluator(object):
         time_prob = []
         prediction_file = open(path_prediction_file, "r")
         for line in prediction_file:
+            print(line)
             if line.find("pred=") != -1 and line.find("prob=") != -1:
                 if len(self.classes_idx_label) <= 2:
                     if line.strip().find("|INFO|") != -1:
@@ -99,7 +100,7 @@ class setup_evaluator(object):
                 else:
                     if line.strip().find("|INFO|") != -1:
                         self.logger.debug(line.strip().split("|INFO|")[1])
-                        time_prob.append((line.strip().split("|INFO|")[1].split(",")[0].strip().split("time=")[1], line.strip().split("|INFO|")[1].split("prob=")[1].strip(), line.strip().split("|I|")[1].split("pred_class=")[1].strip().split(",")[0].strip().split("-")[1].strip()))
+                        time_prob.append((line.strip().split("|INFO|")[1].split(",")[0].strip().split("time=")[1], line.strip().split("|INFO|")[1].split("prob=")[1].strip(), line.strip().split("|INFO|")[1].split("pred_class=")[1].strip().split(",")[0].strip().split("-")[1].strip()))
                         self.duration = line.strip().split("|INFO|")[1].split(",")[0].strip().split("time=")[1].split("-")[1]
                     else:
                         self.logger.debug(line.strip().split("|I|")[1])
@@ -198,6 +199,7 @@ class setup_evaluator(object):
         time_info = []
         first_el = True
         pred = None
+        duration = float(list(prediction_data.keys())[-1].split("-")[1])
         for timestamp in prediction_data:
             time = timestamp.replace("-", " ").split(" ")
             prev_pred = pred
@@ -238,13 +240,14 @@ class setup_evaluator(object):
                     time_info.append(([round(start, 3), round(end, 3)], target))
             else:
                 time_info.append(([round(start, 3), round(end, 3)], target))
-        return time_info
+        return time_info, duration
 
     def get_time_info_orig(self, prediction_data):
         end = 0.0
         start = 0.0
         target = False
         time_info = []
+        duration = float(list(prediction_data.keys())[-1].split("-")[1])
         for timestamp in prediction_data:
             time = timestamp.replace("-", " ").split(" ")
             pred = prediction_data.get(timestamp)[0]
@@ -273,7 +276,7 @@ class setup_evaluator(object):
                     time_info.append(([round(start,3), round(end,3)], 1))
             else:
                 time_info.append(([round(start,3), round(end,3)], 1))
-        return time_info
+        return time_info, duration
 
     def add_noise_parts_to_time_info(self, time_info, duration):
         noise_time_info = []
