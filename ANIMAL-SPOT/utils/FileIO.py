@@ -41,7 +41,7 @@ class AsyncFileReader(object):
             for _ in range(n_readers)
         ]
 
-        if platform.system() != "Windows":
+        if platform.system() == "Linux":
             for w in self._read_workers:
                 w.start()
         self.n_retries = n_retries
@@ -93,7 +93,7 @@ class AsyncFileWriter(object):
             for _ in range(n_writers)
         ]
 
-        if platform.system() != "Windows":
+        if platform.system() == "Linux":
             for w in self._write_workers:
                 w.start()
 
