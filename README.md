@@ -5,7 +5,7 @@
 - [License](#license)
 - [System Requirements](#system-requirements)
 - [OS-Dependent Installation - TBD](#os-dependent-installation)
-- [Example Data Corpus and Recording - TBD](#example-data-corpus-and-recording)
+- [Example Data Corpus and Recording](#example-data-corpus-and-recording)
 - [Data Preparation](#data-preparation)
 - [Network Training](#network-training)
 - [Network Prediction](#network-prediction)
@@ -69,7 +69,7 @@ ANIMAL-SPOT is a deep learning framework developed in PyTorch, requiring the
 installation of the following software packages and modules 
 (during development of ANIMAL-SPOT, the following software packages/versions were used and are compatible):
 
-Python (>=3.8), PyTorch Package, including Torch (1.11.0+cu113), Torchvision (0.12.0+cu113), Torchaudio (0.11.0+cu113), 
+Python (>=3.8), PyTorch Package, including Torch (1.11.0+cu113, compatible with all torch versions up to 2.0.1), Torchvision (0.12.0+cu113, compatible with all torchvision versions up to 0.15.2), Torchaudio (0.11.0+cu113, compatible with all torchaudio versions up to 2.0.2), 
 Librosa (0.8.0), TensorboardX (2.1), Matplotlib (3.3.3), Soundfile (0.10.3.post1), Scikit-Image (0.18.1), Six (1.15.0), Opencv-Python (4.5.1.48), Pillow (8.2.0)
 
 Python: https://www.python.org/downloads/
@@ -116,7 +116,7 @@ journal = {bioRxiv}
 }
 ```
 
-The entire data material (cropped audio files, raw unseen prediction tape, and data split) can be downloaded here: TBD (soon!)
+The entire data material (cropped audio files, raw unseen prediction tape, and data split) can be downloaded here: https://doi.org/10.17617/3.KQPPXF
 
 # Data Preparation
 ANIMAL-SPOT requires annotated data excerpts (.wav samples) in sufficient quantity for each category/class, depending on the bioacoustic signal identification scenario 
