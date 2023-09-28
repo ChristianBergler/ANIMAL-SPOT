@@ -32,14 +32,14 @@ log_dir=/*USER-SPECIFIC-DIRECTORY*/
 output_dir=/*USER-SPECIFIC-DIRECTORY*/
 
 ################
-###SEQUENCE_LENGTH = Prediction sequence length in milliseconds. The network will get an input of a given sequence length
+###SEQUENCE_LENGTH = Prediction sequence length in seconds. The network will get an input of a given sequence length
 ###in order to predict/classify this particular frame (sliding window approach). Consequently each classification hypotheses involves
 ###the same temporal context, which should be similar to the selected sequence length during training.
 ################
 sequence_len=0.30
 
 ################
-###HOP = Hop size in milliseconds. The network will get an input of a given sequence length
+###HOP = Hop size in seconds. The network will get an input of a given sequence length
 ###in order to predict/classify this particular frame and afterwards the window is moved by the given hop size (sliding window approach).
 ################
 hop=0.10
