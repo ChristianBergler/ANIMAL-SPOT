@@ -79,7 +79,7 @@ PyTorch: https://pytorch.org/get-started/locally/
 # OS-Dependent Installation
 Apart from the source code as well as an example data corpus, the ANIMAL-SPOT framework also provides
 an automatic operating-system-independent installation procedure to setup and install all software requirements
-in order to properly deploy the software. Available soon!
+in order to properly deploy the software.
 
 # Example Data Corpus and Recording
 Next to all the guidelines/scripts and source code, the proposed and final example data corpus for target vs. noise detection on Monk parakeets (Myiopsitta monachus).
@@ -116,7 +116,7 @@ journal = {bioRxiv}
 }
 ```
 
-The entire data material (cropped audio files, raw unseen prediction tape, and data split) can be downloaded here: https://doi.org/10.17617/3.KQPPXF
+The entire data material (cropped audio files, raw unseen prediction tape, and data split), additional instructions, logging files, and guidelines can be downloaded here: https://doi.org/10.17617/3.KQPPXF
 
 # Data Preparation
 ANIMAL-SPOT requires annotated data excerpts (.wav samples) in sufficient quantity for each category/class, depending on the bioacoustic signal identification scenario 
@@ -278,9 +278,9 @@ within the config file. Furthermore, the config file specifies empirical values 
 acting as a general guideline. Afterwards the *start_training.py* script  has to be executed on the 
 corresponding operating system.
 
-A successful network training example (log-file output), utilizing the example data corpus, will be available soon!
+A successful network training example (log-file output), utilizing the an example data corpus can be found as part of the above mentioned link https://doi.org/10.17617/3.KQPPXF.
 
-##Linux, MacOS, and Windows
+## Linux, MacOS, and Windows
 Open the *config* file within the *TRAINING* folder and adjust all network hyper-parameters
 according to your data and training scenario, while considering parameter explanations, use-case-specific settings, as 
 well as default values, listed within the *config* file (see also Supplementary Table 2 within the manuscript for species-specific
@@ -298,9 +298,9 @@ excerpt (.wav). All required user-, data-, and system-specific network predictio
 similar to the training procedure (see section *Network Training*). Depending on the chosen prediction window length and step-size, the model predicts each frame and returns 
 the respective class and network confidence (probability). Afterwards the *start_prediction.py* script has to be executed on the corresponding operating system.
 
-A successful network prediction example (log-file output) for binary detection, utilizing a single audio file of the example data corpus, will be available soon!
+A successful network prediction example (log-file output) for binary detection, utilizing a single audio file of the example data corpus, is available as part of the above mentioned download link https://doi.org/10.17617/3.KQPPXF!
 
-##Linux, MacOS, and Windows
+## Linux, MacOS, and Windows
 Open the *config* file within the *PREDICTION* folder and adjust all network prediction hyper-parameters
 according to your data and prediction scenario, while considering parameter explanations, use-case-specific settings, as 
 well as default values, listed within the *config* file. 
@@ -320,7 +320,7 @@ and system-specific network evaluation parameters are explained and listed withi
 (see *EVALUATION* folder), similar to the training procedure (see section *Network Training*).
 Afterwards the *start_evaluation.py* script has to be executed on the corresponding operating system.
 
-A successful network evaluation example (annotation file in RAVEN format), utilizing a single prediction file as input, will be available soon!
+A successful network evaluation example (annotation file in RAVEN format), utilizing a single prediction file as input, is available as part of the above mentioned download link https://doi.org/10.17617/3.KQPPXF!
 
 ANIMAL-SPOT is monitoring, documenting and storing the entire training, validation, as well as the final testing 
 procedure. It reports various machine learning metrics, such as accuracy, F1-score, recall, 
@@ -332,7 +332,7 @@ validation, and testing procedure), together with the automatically generated *s
 
 ```tensorboard --logdir /*PathToNetworkSummaryFolder*/summaries/```
 
-##Linux, MacOS, and Windows
+## Linux, MacOS, and Windows
 In a first step open the *config* file within the *EVALUATION* folder and adjust all network hyper-parameters
 according to your scenario.  
 
